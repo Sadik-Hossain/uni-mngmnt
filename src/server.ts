@@ -4,7 +4,6 @@ import config from './config'
 
 async function bootStrap() {
   try {
-    // sadad
     await mongoose.connect(config.db_url as string)
     console.log(`db connected!`)
     app.listen(config.port, () => {
