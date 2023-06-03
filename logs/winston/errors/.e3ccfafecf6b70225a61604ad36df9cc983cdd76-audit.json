@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "F:\\level2_projects\\mission-3-backend-braniac\\mod-11-project-setup\\uni-mngmnt\\logs\\winston\\errors\\.e3ccfafecf6b70225a61604ad36df9cc983cdd76-audit.json",
+    "files": [
+        {
+            "date": 1685809700477,
+            "name": "F:\\level2_projects\\mission-3-backend-braniac\\mod-11-project-setup\\uni-mngmnt\\logs\\winston\\errors\\UM-2023-03-06-22-error.log",
+            "hash": "4f7787f5565bb0348dfad39e91f4174a00c92938f455571645daa26adb9b5b83"
+        }
+    ],
+    "hashType": "sha256"
+}

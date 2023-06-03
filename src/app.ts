@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true }))
 // routes
 // app.use("/",myRoute)
 
+// console.log(app.get('env'))
+
 app.get('/', async (req: Request, res: Response) => {
   res.send('hello from server')
 })
