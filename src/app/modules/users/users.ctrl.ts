@@ -4,9 +4,6 @@ import { RequestHandler } from 'express'
 const createUser: RequestHandler = async (req, res, next) => {
   try {
     const { id, password, email, role } = req.body
-    // if (!id || !password || !email || !role) {
-    //   return res.status(404).json({ msg: 'please fill all fields' })
-    // }
     const result = await UserService.createUserToDB({
       id,
       password,
