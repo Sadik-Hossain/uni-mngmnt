@@ -32,6 +32,7 @@ export const logger = createLogger({
 
     new DailyRotateFile({
       filename: path.join(
+        // ./logs/winston/successes/*.log
         process.cwd(),
         'logs',
         'winston',

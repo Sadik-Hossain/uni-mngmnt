@@ -1,9 +1,10 @@
 import config from '../../../config'
+import ApiError from '../../../errors/ApiError'
 import { IUser } from './users.interface'
 import User from './users.model'
 import { genUserId } from './users.utils'
 
-export const createUserToDB = async (user: IUser): Promise<IUser | null> => {
+const createUserToDB = async (user: IUser): Promise<IUser | null> => {
   // auto generated incremental id
   const id = await genUserId()
   user.id = id
@@ -14,8 +15,13 @@ export const createUserToDB = async (user: IUser): Promise<IUser | null> => {
   }
 
   const createdUser = await User.create(user)
+
   if (!createdUser) {
-    throw new Error('Failed to create user!')
+    // throw new Error('Failed to create user!')
+    throw new ApiError(400, 'Failed to create user!')
   }
   return createdUser
+}
+export const UserService = {
+  createUserToDB,
 }

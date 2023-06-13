@@ -1,13 +1,13 @@
-import { Request, Response } from 'express'
-import { createUserToDB } from './users.service'
+import { UserService } from './users.service'
+import { RequestHandler } from 'express'
 
-export const createUser = async (req: Request, res: Response) => {
+const createUser: RequestHandler = async (req, res, next) => {
   try {
     const { id, password, email, role } = req.body
-    if (!id || !password || !email || !role) {
-      return res.status(404).json({ msg: 'please fill all fields' })
-    }
-    const result = await createUserToDB({
+    // if (!id || !password || !email || !role) {
+    //   return res.status(404).json({ msg: 'please fill all fields' })
+    // }
+    const result = await UserService.createUserToDB({
       id,
       password,
       email,
@@ -16,9 +16,15 @@ export const createUser = async (req: Request, res: Response) => {
     res.status(201).json({ data: result })
     return result
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      msg: 'failed to create user',
-    })
+    // res.status(400).json({
+    //   success: false,
+    //   msg: 'failed to create user',
+    // })
+
+    next(error)
   }
+}
+
+export const UserController = {
+  createUser,
 }
