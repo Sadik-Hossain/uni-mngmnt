@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
 import globalErrorHandler from './app/middlewares/globalErrorHandlers'
 import { UserRoutes } from './app/modules/users/users.routes'
+import { AcademicSemesterRoutes } from './app/modules/academicSemester/academicSemeser.route'
 
 const app: Application = express()
 
@@ -20,6 +21,7 @@ app.get('/', async (req: Request, res: Response) => {
 })
 
 app.use('/api/v1/users', UserRoutes)
+app.use('/api/v1/academic-semesters', AcademicSemesterRoutes)
 
 // global error handler
 app.use(globalErrorHandler)
