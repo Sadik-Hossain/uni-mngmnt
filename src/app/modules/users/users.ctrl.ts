@@ -14,14 +14,14 @@ const createUser: RequestHandler = catchAsync(
       email,
       role,
     })
-    next()
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'User created successfully!',
       data: result,
     })
-    return result
+    next()
   }
 )
 
