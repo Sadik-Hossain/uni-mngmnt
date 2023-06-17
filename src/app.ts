@@ -1,8 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
 import globalErrorHandler from './app/middlewares/globalErrorHandlers'
-import { UserRoutes } from './app/modules/users/users.routes'
-import { AcademicSemesterRoutes } from './app/modules/academicSemester/academicSemeser.route'
+import router from './app/routes'
 
 const app: Application = express()
 
@@ -20,8 +19,7 @@ app.get('/', async (req: Request, res: Response) => {
   // Promise.reject(new Error('Unhandled Promise Rejection'))
 })
 
-app.use('/api/v1/users', UserRoutes)
-app.use('/api/v1/academic-semesters', AcademicSemesterRoutes)
+app.use('/api/v1', router)
 
 // global error handler
 app.use(globalErrorHandler)
