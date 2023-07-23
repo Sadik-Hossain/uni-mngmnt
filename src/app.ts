@@ -7,18 +7,18 @@ import httpStatus from 'http-status'
 const app: Application = express()
 
 // global middleware
-app.use(cors())
 
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', async (req: Request, res: Response) => {
-  res.send('hello from server')
-  // throw new Error('hello errror')
-  // next('hello eror')
-  // throw new ApiError(400, 'my errror!')
-  // Promise.reject(new Error('Unhandled Promise Rejection'))
-})
+// app.get('/', async (req: Request, res: Response) => {
+//   res.send('hello from server')
+//   // throw new Error('hello errror')
+//   // next('hello eror')
+//   // throw new ApiError(400, 'my errror!')
+//   // Promise.reject(new Error('Unhandled Promise Rejection'))
+// })
 
 app.use('/api/v1', router)
 

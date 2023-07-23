@@ -21,7 +21,12 @@ const userSchema = new Schema<IUser>(
       required: true,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+  }
 )
 const User = model<IUser, UserModel>('User', userSchema)
 export default User

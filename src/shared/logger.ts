@@ -48,7 +48,7 @@ export const logger = createLogger({
 })
 
 export const errorLogger = createLogger({
-  level: 'error',
+  level: 'error ',
 
   // format: combine(label({ label: 'UM' }), timestamp(), myFormat, prettyPrint()),
 
